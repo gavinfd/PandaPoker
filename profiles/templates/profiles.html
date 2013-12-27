@@ -1,0 +1,40 @@
+{% extends "theme_base.html" %}
+{% load staticfiles %}
+
+{% load i18n %}
+
+{% block head_title %}{% trans "Profiles" %}{% endblock %}
+
+<link rel="stylesheet" type="text/css" href="{% static 'inputstats/style.css' %}" />
+
+
+
+
+{% block body %}
+    <div class="hero-unit">
+    {% block banner %}
+        <h1>Player Profiles</h1>
+    {% endblock %}
+    </div>
+    {% if user.is_authenticated %}
+		{% if profiles_list %}		
+			
+			<div class="row">
+				{% for person in profiles_list %}
+				<div class="span3">
+					<h4><a href="{% url 'inputstats:playerinfo' person.id %}">{{person.first_name}} {{person.last_name}}</a></h4>
+					<ul>
+						<li><p><b>Games Played:</b> 3</p></li>
+						<li><p><b>Average Placing:</b> 2.7</p></li>
+						<li><p><b>Highest Hand:</b> Royal Flush</p></li>
+						<li><p><b>Knockouts:</b> 23</p></li>
+						<li><p><b>Play Style:</b> Aggressive and bluffs more than usual.</p></li>
+					</ul>
+				</div>
+				{% endfor %}
+			</div>
+		{% else %}
+			<p>No profiles are available.</p>			
+		{% endif %}
+	{% endif %}
+{% endblock %}

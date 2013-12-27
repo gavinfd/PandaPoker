@@ -1,4 +1,1 @@
 PandaPoker
-==========
-
-PandaPoker

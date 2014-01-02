@@ -30,7 +30,7 @@ class IndexView(generic.ListView):
 				for player in players:
 					current.average_standing += player.standing
 				current.games_played = len(players)
-				current.average_standing = float(current.average_standing)/float(current.games_played)
+				current.average_standing = round(float(current.average_standing)/float(current.games_played), 3)
 				full_players.append(current)
 		full_players.sort(key=operator.attrgetter('average_standing'), reverse=False)
 		return full_players

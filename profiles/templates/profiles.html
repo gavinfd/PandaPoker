@@ -24,7 +24,7 @@
 			<div class="row">
 				{% for player in profiles_list %}
 				<div class="span3">
-					<h4>{{player}}</h4>
+					<h4><a href="{% url 'inputstats:playerinfo' player.id %}">{{player}}</a></h4>
 					<ul>
 						<img src="{{STATIC_URL}}logo.png" style="width:100px;" alt="logo" />
 						&nbsp;
@@ -40,4 +40,9 @@
 			<p>No profiles are available.</p>			
 		{% endif %}
 	{% endif %}
+	
+	<script type="text/javascript">
+	//var data = JSON.parse("{{ profiles_list }}");
+	//alert(data);
+	</script>
 {% endblock %}

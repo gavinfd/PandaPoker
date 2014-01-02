@@ -24,7 +24,7 @@
 					<ul>
 					{% for variation in variation_list %}
 						<li><h2>{{ variation.name }}</h2>
-						<p>Times Played: {{ variation.rating }} - {{ variation.description }}</p></li>
+						<p>Times Played: {{ variation.times_played }} - {{ variation.description }}</p></li>
 					{% endfor %}
 					</ul>
 				{% else %}
@@ -34,4 +34,8 @@
 			</div>
 		</div>
     {% endif %}
+    
+    <script>
+    var data = {{ variation_list|safe }};
+    </script>
 {% endblock %}

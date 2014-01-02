@@ -6,18 +6,33 @@ from django.utils import timezone
 from django.utils import simplejson
 import json
 
-
+from django.contrib.auth.models import User
 from inputstats.models import Game, Player
 
 class IndexView(generic.ListView):
 	template_name = 'stats.html'
-	context_object_name = 'poll_as_json'
+	context_object_name = 'data_list'
 
 	def get_queryset(self):
-		#return Game.objects.filter(
-		#game_date__lte=timezone.now()
-		#).order_by('-game_date')[:5]
-
+		
+		dates = []
+		full_players = []
+		
+		standing = []
+		games = Game.objects.order_by('game_date')
+		users = User.objects.order_by('first_name')
+		for user in users:
+			player = Player.objects.filter(player = user.id).order_by('game')
+			for p in player:
+				standing.append({"date": str(p.game),"temperature": p.standing})
+			break;
+		
+		for game in games:
+			dates.append(game.game_date.strftime("%Y%m%d"))
+			players = Player.objects.filter(game_id__exact = game).values_list('player', 'standing')#
+			full_players.append(players)
+		return json.dumps(standing, full_players)		
+		'''
 		poll_results = [4, 6, 7, 1]
 		poll_as_json = json.dumps(poll_results)
 		# Gives you a string '[4, 6, 7, 1]'
@@ -33,7 +48,7 @@ class IndexView(generic.ListView):
 		
 		#return poll_as_json
 		return data_as_json
-		
+		'''
 	'''
 	def my_ajax_view(request):
 		if not request.is_ajax():
@@ -55,6 +70,10 @@ class DetailView(generic.DetailView):
 class PlayerInfoView(generic.DetailView):
 	model = Player
 	template_name = 'playerinfo.html'
+	
+	def playerinfo(self, request, *args, **kwargs):
+		if kwargs.get('pk', None):
+			return None
 
 class ResultsView(generic.DetailView):
 	model = Game

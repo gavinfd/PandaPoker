@@ -17,14 +17,14 @@
 				<h2>Variations</h2>
 				<p>See the list of ever growing variations, or add your own.</p>
 				{% url "variations:index_variation" as variations %}
-				<p><a class="btn" href="{% url 'variations:index_variation' %}">View &raquo;</a></p>
+				<p><a class="btn btn-primary" href="{% url 'variations:index_variation' %}">View &raquo;</a></p>
 			{% endblock %}
 			</div>
 			<div class="span4">
 			{% block column-2 %}
 				<h2>Profiles</h2>
 				<p>Want to know what we think of each players ability and personality?</p>
-				<p><a class="btn" href="{% url 'profiles:index_profiles' %}">View &raquo;</a></p>
+				<p><a class="btn btn-primary" href="{% url 'profiles:index_profiles' %}">View &raquo;</a></p>
 			{% endblock %}
 			</div>
 			<div class="span4">
@@ -32,7 +32,7 @@
 				<h2>Player Stats</h2>
 				{% url "inputstats:index_stats" as stats %}
 				<p>View the standings of all the players throughout the year.</p>
-				<p><a class="btn" href="{{ stats }}">View  &raquo;</a></p>
+				<p><a class="btn btn-primary" href="{{ stats }}">View  &raquo;</a></p>
 			{% endblock %}
 			</div>
 		</div>

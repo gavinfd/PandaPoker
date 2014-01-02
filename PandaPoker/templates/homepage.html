@@ -8,14 +8,14 @@
 {% block body_class %}home{% endblock %}
 
 {% block banner %}
-    <h1>{% trans "Panda Poker" %}</h1>
-
+    <img src="{{STATIC_URL}}logo.png" style="width:100px;" align="left" alt="logo" />
+    <h1>&nbsp;{% trans "Panda Poker" %}</h1>
     
     {% if user.is_authenticated %}
-        <p>Welcome to the site where poker players are separated from gamblers.</p>
+        <p>&nbsp;&nbsp;&nbsp;&nbsp;Welcome to the site where poker players are separated from gamblers.</p>
 	{% else %}
         {% url "account_login" as login_url %}
         {% url "account_signup" as signup_url %}
-        <p>{% blocktrans %}You can <a href="{{ login_url }}" class="btn">Log In</a> or <a href="{{ signup_url }}" class="btn primary">Sign Up</a> to try out the site.{% endblocktrans %}</p>
+        <p>&nbsp;&nbsp;&nbsp;&nbsp;{% blocktrans %}You can <a href="{{ login_url }}" class="btn">Log In</a> or <a href="{{ signup_url }}" class="btn primary">Sign Up</a> to try out the site.{% endblocktrans %}</p>
     {% endif %}
 {% endblock %}

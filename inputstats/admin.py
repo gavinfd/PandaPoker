@@ -1,5 +1,7 @@
 from django.contrib import admin
-from inputstats.models import Game, Player
+from inputstats.models import Game, Player, Hand
+from django.contrib.auth.models import User
+from variations.models import Variation
 
 class PlayerInline(admin.TabularInline):
 	model = Player
@@ -19,6 +21,30 @@ class GameAdmin(admin.ModelAdmin):
 	
 admin.site.register(Game, GameAdmin)
 
-admin.site.register(Player)
+class PlayerAdmin(admin.ModelAdmin):
+	fieldsets = [
+		('Game',               {'fields': ['game']}),
+		('Player', 				{'fields': ['player']}),
+		('Standing',               {'fields': ['standing']}),
+		('Knockouts',               {'fields': ['knockouts']}),
+		('Highest Hand',               {'fields': ['highesthand']})
+	]
+	
+	list_display = ('game' , 'player', 'standing', 'knockouts', 'highesthand')
+	list_filter =['game', 'player']
+	search_fields = ['player']
+
+admin.site.register(Player, PlayerAdmin)
+
+class HandAdmin(admin.ModelAdmin):
+	fieldsets = [
+		('Cards',               {'fields': ['cards']}),
+		('Description', 		{'fields': ['description']}),
+
+	]
+	
+	list_display = ('cards' , 'description')
+
+admin.site.register(Hand, HandAdmin)
 
 

@@ -34,7 +34,7 @@ class IndexView(generic.ListView):
 		#return poll_as_json
 		return data_as_json
 		
-		
+	'''
 	def my_ajax_view(request):
 		if not request.is_ajax():
 			raise Http404
@@ -47,7 +47,7 @@ class IndexView(generic.ListView):
 		
 		data_dict = getmydata() #lets supose is a dict
 		return HttpResponse(simplejson.dumps(response_data))
-
+	'''
 class DetailView(generic.DetailView):
 	model = Game
 	template_name = 'detail.html'
@@ -59,7 +59,7 @@ class PlayerInfoView(generic.DetailView):
 class ResultsView(generic.DetailView):
 	model = Game
 	template_name = 'results.html'
-
+'''
 def vote(request, question_id):
 	p = get_object_or_404(Game, pk=question_id)
 	try:
@@ -77,3 +77,4 @@ def vote(request, question_id):
 		# with POST data. This prevents data from being posted twice if a
 		# user hits the Back button.
 		return HttpResponseRedirect(reverse('polls:results', args=(p.id,)))
+'''

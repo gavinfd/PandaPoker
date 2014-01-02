@@ -13,7 +13,6 @@ urlpatterns = patterns('',
     url(r'^(?P<pk>\d+)/$', views.DetailView.as_view(), name='detail'),
     url(r'^(?P<pk>\d+)/results/$', views.ResultsView.as_view(), name='results'),
     url(r'^player/(?P<pk>\d+)/$', views.PlayerInfoView.as_view(), name='playerinfo'),
-    url(r'^(?P<question_id>\d+)/vote/$', views.vote, name='vote'),
 )
 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

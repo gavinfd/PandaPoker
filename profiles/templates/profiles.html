@@ -13,22 +13,25 @@
 {% block body %}
     <div class="hero-unit">
     {% block banner %}
-        <h1>Player Profiles</h1>
+    	<img src="{{STATIC_URL}}logo.png" style="width:100px;" align="left" alt="logo" />
+        <h1>&nbsp;Player Profiles</h1>
+        <p>&nbsp;&nbsp;&nbsp;&nbsp;How do you stack against your fellow poker players?</p>
     {% endblock %}
     </div>
     {% if user.is_authenticated %}
 		{% if profiles_list %}		
 			
 			<div class="row">
-				{% for person in profiles_list %}
+				{% for player in profiles_list %}
 				<div class="span3">
-					<h4><a href="{% url 'inputstats:playerinfo' person.id %}">{{person.first_name}} {{person.last_name}}</a></h4>
+					<h4>{{player}}</h4>
 					<ul>
-						<li><p><b>Games Played:</b> 3</p></li>
-						<li><p><b>Average Placing:</b> 2.7</p></li>
-						<li><p><b>Highest Hand:</b> Royal Flush</p></li>
-						<li><p><b>Knockouts:</b> 23</p></li>
-						<li><p><b>Play Style:</b> Aggressive and bluffs more than usual. Minor change.</p></li>
+						<img src="{{STATIC_URL}}logo.png" style="width:100px;" alt="logo" />
+						&nbsp;
+						<li><p><b>Games Played:</b> {{player.games_played}}</p></li>
+						<li><p><b>Average Placing:</b> {{player.average_standing}}</p></li>
+						<li><p><b>Highest Hand:</b> {{player.highesthand}}</p></li>
+						<li><p><b>Knockouts:</b> {{player.total_knockouts}}</p></li>
 					</ul>
 				</div>
 				{% endfor %}

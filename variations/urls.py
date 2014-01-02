@@ -10,6 +10,7 @@ from variations import views
 
 urlpatterns = patterns('',
     url(r'^$', views.IndexView.as_view(), name='index_variation'),
+    url(r'add/$', views.AddView.as_view(), name='add_variation'),
 )
 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

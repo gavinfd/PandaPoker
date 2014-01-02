@@ -12,7 +12,7 @@
     {% block banner %}
         <h1>List of Variations</h1>
         <p>Any and all fantastic or repulsive variations ever created.</p>
-        <p><a class="btn btn-primary btn">Add variation &raquo;</a></p>
+        <p><a class="btn btn-primary btn" href="{% url 'variations:add_variation' %}">Add variation &raquo;</a></p>
     {% endblock %}
     </div>
     {% if user.is_authenticated %}

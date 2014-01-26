@@ -1,0 +1,33 @@
+{% extends "theme_base.html" %}
+{% load staticfiles %}
+
+{% load i18n %}
+
+{% block head_title %}{% trans "Statisitcs" %}{% endblock %}
+
+{% block extra_head_base %}
+    {% block extra_head %}
+    <script src="{% static 'stats/js/d3.v3.js' %}"></script>
+    {% endblock %}
+{% endblock %}
+
+{% block body %}
+	
+    
+    <div class="hero-unit">
+    {% block banner %}
+        <h1>Statistics</h1>
+    {% endblock %}
+    </div>
+    {% if user.is_authenticated %}
+		<div class="row">
+			<div class="span12">
+			{% block column-1 %}
+				<h2>All Players</h2>
+				<div id="graph"></div>
+			{% endblock %}
+			</div>
+		</div>
+    {% endif %}
+    
+{% endblock %}

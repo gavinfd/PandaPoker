@@ -1,0 +1,9 @@
+<h1>{{ game.variation }}</h1>
+
+<ul>
+{% for player in game.player_set.all %}
+    <li>{{ player.standing }} {{ player.first_name }} {{ player.last_name }}</li>
+{% endfor %}
+</ul>
+
+<a href="{% url 'inputstats:detail' game.id %}">Vote again?</a>

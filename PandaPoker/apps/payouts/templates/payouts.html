@@ -1,0 +1,115 @@
+{% extends "theme_base.html" %}
+{% load url from future %}
+{% load staticfiles %}
+
+{% load i18n %}
+
+{% block head_title %}{% trans "Payouts" %}{% endblock %}
+
+{% block body %}
+    {% if user.is_authenticated %}
+    <div class="hero-unit">
+    {% block banner %}
+    	<img src="{{STATIC_URL}}main_logo.png" style="width:100px;" align="left" alt="logo" />
+        <h1>&nbsp;Payout Denominations</h1>
+        <p>&nbsp;&nbsp;&nbsp;&nbsp;Show me the money!</p>
+    {% endblock %}
+    </div>
+    
+
+			<div class="row">
+				<div class="span3">
+					<h4>5 Players</h4>
+					<ul>
+						<li><p><b>1st:</b> 80</p></li>
+						<li><p><b>2nd:</b> 20</p></li>
+					</ul>
+				</div>
+				<div class="span3">
+					<h4>6 Players</h4>
+					<ul>
+						<li><p><b>1st:</b> 100</p></li>
+						<li><p><b>2nd:</b> 20</p></li>
+					</ul>
+				</div>
+				<div class="span3">
+					<h4>7 Players</h4>
+					<ul>
+						<li><p><b>1st:</b> 100</p></li>
+						<li><p><b>2nd:</b> 40</p></li>
+					</ul>
+				</div>
+				<div class="span3">
+					<h4>8 Players</h4>
+					<ul>
+						<li><p><b>1st:</b> 100</p></li>
+						<li><p><b>2nd:</b> 40</p></li>
+						<li><p><b>3nd:</b> 20</p></li>
+					</ul>
+				</div>
+				<div class="span3">
+					<h4>9 Players</h4>
+					<ul>
+						<li><p><b>1st:</b> 120</p></li>
+						<li><p><b>2nd:</b> 40</p></li>
+						<li><p><b>3nd:</b> 20</p></li>
+					</ul>
+				</div>
+				<div class="span3">
+					<h4>10 Players</h4>
+					<ul>
+						<li><p><b>1st:</b> 120</p></li>
+						<li><p><b>2nd:</b> 60</p></li>
+						<li><p><b>3nd:</b> 20</p></li>
+					</ul>
+				</div>
+				<div class="span3">
+					<h4>11 Players</h4>
+					<ul>
+						<li><p><b>1st:</b> 120</p></li>
+						<li><p><b>2nd:</b> 60</p></li>
+						<li><p><b>3nd:</b> 20</p></li>
+						<li><p><b>4nd:</b> 20</p></li>
+					</ul>
+				</div>
+				<div class="span3">
+					<h4>12 Players</h4>
+					<ul>
+						<li><p><b>1st:</b> 140</p></li>
+						<li><p><b>2nd:</b> 60</p></li>
+						<li><p><b>3nd:</b> 20</p></li>
+						<li><p><b>4nd:</b> 20</p></li>
+					</ul>
+				</div>
+				<div class="span3">
+					<h4>13 Players</h4>
+					<ul>
+						<li><p><b>1st:</b> 140</p></li>
+						<li><p><b>2nd:</b> 60</p></li>
+						<li><p><b>3nd:</b> 40</p></li>
+						<li><p><b>4nd:</b> 20</p></li>
+					</ul>
+				</div>
+				<div class="span3">
+					<h4>14 Players</h4>
+					<ul>
+						<li><p><b>1st:</b> 160</p></li>
+						<li><p><b>2nd:</b> 60</p></li>
+						<li><p><b>3nd:</b> 40</p></li>
+						<li><p><b>4nd:</b> 20</p></li>
+					</ul>
+				</div>
+				<div class="span3">
+					<h4>15 Players</h4>
+					<ul>
+						<li><p><b>1st:</b> 160</p></li>
+						<li><p><b>2nd:</b> 80</p></li>
+						<li><p><b>3nd:</b> 40</p></li>
+						<li><p><b>4nd:</b> 20</p></li>
+					</ul>
+				</div>
+			</div>
+
+	{% endif %}
+	
+{% endblock %}

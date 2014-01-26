@@ -1,0 +1,44 @@
+{% extends "theme_base.html" %}
+{% load url from future %}
+{% load staticfiles %}
+
+{% load i18n %}
+
+{% block head_title %}{% trans "Profiles" %}{% endblock %}
+
+{% block body %}
+	{% if user.is_authenticated %}
+    <div class="hero-unit">
+    {% block banner %}
+    	<img src="{{STATIC_URL}}main_logo.png" style="width:100px;" align="left" alt="logo" />
+        <h1>&nbsp;Player Profiles</h1>
+        <p>&nbsp;&nbsp;&nbsp;&nbsp;How do you stack against your fellow poker players?</p>
+    {% endblock %}
+    </div>
+    
+		{% if profiles_list %}		
+			
+			<div class="row">
+				{% for player in profiles_list %}
+				<div class="span4">
+					{% if player.has_name %}
+					<h4><a href="{% url 'stats:playerinfo' player.id %}">{{player}}</a></h4>
+					{% else %}
+					<h4><a href="{% url 'stats:playerinfo' player.id %}">{{player.username}}</a></h4>
+					{% endif %}
+					<ul>
+						<img src="{{STATIC_URL}}logo.png" style="width:100px;" alt="logo" />
+						&nbsp;
+						<li><p><b>Games Played:</b> {{player.games_played}}</p></li>
+						<li><p><b>Average Placing:</b> {{player.average_standing}}</p></li>
+						<li><p><b>Highest Hand:</b> {{player.highesthand}}</p></li>
+						<li><p><b>Knockouts:</b> {{player.total_knockouts}}</p></li>
+					</ul>
+				</div>
+				{% endfor %}
+			</div>
+		{% else %}
+			<p>No profiles are available.</p>			
+		{% endif %}
+	{% endif %}
+{% endblock %}

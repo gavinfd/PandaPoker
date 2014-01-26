@@ -29,7 +29,7 @@ MANAGERS = ADMINS
 DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.mysql", # Add "postgresql_psycopg2", "postgresql", "mysql", "sqlite3" or "oracle".
-        "NAME": "pandapokerdb",                       # Or path to database file if using sqlite3.
+        "NAME": "test_pandapokerdb",                       # Or path to database file if using sqlite3.
         "USER": "pokerguest",                             # Not used with sqlite3.
         "PASSWORD": "Blueberry1",                         # Not used with sqlite3.
         "HOST": "pandapokerdb.pandapoker.ca",                             # Set to empty string for localhost. Not used with sqlite3.

@@ -1,0 +1,41 @@
+{% extends "theme_base.html" %}
+{% load staticfiles %}
+{% load url from future %}
+{% load i18n %}
+
+{% block head_title %}{% trans "Variations" %}{% endblock %}
+
+{% block body %}
+	{% if user.is_authenticated %}
+    <div class="hero-unit">
+    {% block banner %}
+    	<img src="{{STATIC_URL}}main_logo.png" style="width:100px;" align="left" alt="logo" />
+        <h1>&nbsp;List of Variations</h1>
+        <p>&nbsp;&nbsp;&nbsp;&nbsp;Any and all fantastic or repulsive variations ever created.</p>
+<!--         <p><a class="btn btn-primary btn" href="">Add variation &raquo;</a></p> -->
+    {% endblock %}
+    </div>
+		<div class="row">
+			<div class="span12">
+			{% block column-1 %}
+				
+				{% if variation_list %}
+					<ul>
+					{% for variation in variation_list %}
+						<li><h2>{{ variation.name }}</h2>
+						<p><b>Times Played:</b> {{ variation.times_played }}</p>
+						<p><b>Description:</b> {{ variation.description }}</p></li>
+					{% endfor %}
+					</ul>
+				{% else %}
+					<p>No variations are available.</p>
+				{% endif %}
+			{% endblock %}
+			</div>
+		</div>
+    {% endif %}
+    
+    <script>
+    var data = {{ variation_list|safe }};
+    </script>
+{% endblock %}

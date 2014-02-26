@@ -22,11 +22,12 @@ class IndexView(generic.ListView):
         for user in users:
             players = Player.objects.filter(player__exact = user.id).order_by('highesthand').annotate(total_knockouts=Sum("knockouts"))
             if players:
-                
                 current = players[0]
                 current.average_standing = 0
+                current.total_knockouts = 0
                 for player in players:
                     current.average_standing += player.standing
+                    current.total_knockouts += player.knockouts
                 current.games_played = len(players)
                 current.average_standing = round(float(current.average_standing)/float(current.games_played), 3)
                 current.username = user

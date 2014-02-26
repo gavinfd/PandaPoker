@@ -27,8 +27,8 @@
 					<h4><a href="{% url 'stats:playerinfo' player.id %}">{{player.username}}</a></h4>
 					{% endif %}
 					<ul>
-						<img src="{{STATIC_URL}}logo.png" style="width:100px;" alt="logo" />
-						&nbsp;
+<!-- 						<img src="{{STATIC_URL}}logo.png" style="width:100px;" alt="logo" /> -->
+<!-- 						&nbsp; -->
 						<li><p><b>Games Played:</b> {{player.games_played}}</p></li>
 						<li><p><b>Average Placing:</b> {{player.average_standing}}</p></li>
 						<li><p><b>Highest Hand:</b> {{player.highesthand}}</p></li>

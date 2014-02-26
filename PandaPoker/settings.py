@@ -159,8 +159,8 @@ INSTALLED_APPS = [
     "metron",
     
     # Pinax
-    "pinax.apps.account",
-    "pinax.apps.signup_codes",
+    "account",
+    #"pinax.apps.signup_codes",
     
     # project
     "about",
@@ -186,7 +186,7 @@ AUTHENTICATION_BACKENDS = [
 ]
 
 LOGIN_URL = "/account/login/" # @@@ any way this can be a url name?
-LOGIN_REDIRECT_URLNAME = "what_next"
+LOGIN_REDIRECT_URLNAME = "home"
 LOGOUT_REDIRECT_URLNAME = "home"
 
 EMAIL_CONFIRMATION_DAYS = 2

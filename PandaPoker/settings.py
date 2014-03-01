@@ -156,6 +156,7 @@ INSTALLED_APPS = [
     "django_openid",
     "timezones",
     "emailconfirmation",
+    "metron",
     
     # Pinax
     "pinax.apps.account",

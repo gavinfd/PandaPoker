@@ -29,7 +29,7 @@ MANAGERS = ADMINS
 DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.mysql", # Add "postgresql_psycopg2", "postgresql", "mysql", "sqlite3" or "oracle".
-        "NAME": "test_pandapokerdb",                       # Or path to database file if using sqlite3.
+        "NAME": "pandapokerdb",                       # Or path to database file if using sqlite3.
         "USER": "pokerguest",                             # Not used with sqlite3.
         "PASSWORD": "Blueberry1",                         # Not used with sqlite3.
         "HOST": "pandapokerdb.pandapoker.ca",                             # Set to empty string for localhost. Not used with sqlite3.
@@ -164,6 +164,10 @@ INSTALLED_APPS = [
     
     # project
     "about",
+    "stats",
+    "variations",
+    "profiles",
+    "payouts",
 ]
 
 FIXTURE_DIRS = [
@@ -186,11 +190,13 @@ AUTHENTICATION_BACKENDS = [
 ]
 
 LOGIN_URL = "/account/login/" # @@@ any way this can be a url name?
-LOGIN_REDIRECT_URLNAME = "what_next"
+LOGIN_REDIRECT_URLNAME = "home"
 LOGOUT_REDIRECT_URLNAME = "home"
 
 EMAIL_CONFIRMATION_DAYS = 2
 EMAIL_DEBUG = DEBUG
+CONTACT_EMAIL = "help@pandapoker.ca"
+SERVER_EMAIL = "django@pandapoker.ca"
 
 DEBUG_TOOLBAR_CONFIG = {
     "INTERCEPT_REDIRECTS": False,
